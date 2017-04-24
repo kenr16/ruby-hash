@@ -39,8 +39,13 @@ class MyHash
   define_method(:merge) do |other_hash|
     index = other_hash.length()
     index.times() do |time|
-      @key_array.push(other_hash.key(time))
-      @value_array.push(other_hash.value(time))
+      if @key_array.include?(other_hash.key(time))
+        @value_array[time] = other_hash.value(time)
+      else
+        @key_array.push(other_hash.key(time))
+        @value_array.push(other_hash.value(time))
+      end
+
     end
     @value_array
   end
