@@ -28,6 +28,7 @@ class MyHash
     @key_array[number]
   end
 
+
   define_method(:value) do |number|
     @value_array[number]
   end
